@@ -90,6 +90,24 @@ h1, h2, h3, h4, h5, h6 {
     z-index: -1;
   }
 
+  @media only screen and (min-width: 768px) {
+    .jap-trans-1 {
+      display: none;
+    }
+  
+    .jap-trans-2 {
+      display: none;
+    }
+  
+    .jap-trans-3 {
+      display: none;
+    }
+  
+    .jap-trans-4 {
+      display: none;
+    }
+  }
+
 figure {
   margin-bottom: 2.5em;
   float: left;
