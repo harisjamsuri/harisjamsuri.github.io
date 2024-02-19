@@ -95,13 +95,96 @@
 							<span class="heading-meta">Get in Touch</span>
 							<h2 class="colorlib-heading heading-translate">コンタクトしてください</h2>
 							<p class="translate">(Kontakuto shite kudasai) Contact Me</p>
-							<p><strong>Hello,</strong> you may choose to reach me through the form provided below.</p>
+							<p><strong>Hello,</strong> Due to the limitation in Github, you can get my contact info by using the button below.</p>
 						</div>
 						
 					</div>
+
+					<style>
+						#contactInfo {
+							display: none;
+						}
+				
+						#counter {
+							color: red;
+							font-weight: bold;
+							animation: fadeInOut 1s linear infinite alternate; /* Adjust the animation properties */
+						}
+				
+						@keyframes scaleInOut {
+							0% {
+								transform: scale(1);
+							}
+							100% {
+								transform: scale(1.2); /* Adjust the scale value */
+							}
+						}
+
+						.button-form-group {
+							text-align: center;
+							padding-top: 10px;
+						}
+
+						.counter-attrib {
+							margin: 15px;
+						}
+					</style>
+				</head>
+				<body>
+
+					<div class="row">
+						<div class="col-md-12 animate-box" data-animate-effect="fadeInLeft">
+							<div class="quote">
+								<p style="font-size: 18px;"><b>“Succeeding in Business is all about making connections”</b>
+									<br><i><b><span style="font-size: 14px;">~ Sir Richard Branson<br>British Business Magnate</span></b></i></p>
+							</div>
+						</div>
+					</div>
+				
 					<div class="row">
 						<div class="col-md-12">
-							<form netlify action="forms/contactus.php" method="post" role="form" data-netlify="true" class="php-email-form">
+							<form role="form" class="php-email-form">
+								<div class="row">
+									<div class="col-md-10 col-md-offset-1 col-md-pull-1 animate-box" data-animate-effect="fadeInRight">
+										<form action="">
+											<div class="button-form-group">
+												<div id="contactInfo">
+													<span>Contact Number:<strong> +6 0115 8899 639</strong></span><br>
+													<span>Email: <strong>haris.jamsuri</strong>(at)<strong>gmail.com</strong></span>
+												</div>
+											</div>
+											<div class="button-form-group">
+												<input class="btn btn-primary btn-send-message" value="Click On ME!" onclick="showContactInfo()"><br>
+											</div>
+											<p class="button-form-group counter-attrib" id="counter"></p>
+										</form>
+									</div>
+								</div>
+							</form>
+							<script>
+								function showContactInfo() {
+									var contactInfo = document.getElementById("contactInfo");
+									contactInfo.style.display = "block";
+				
+									// Set up a counter
+									var seconds = 10;
+									var counterElement = document.getElementById("counter");
+				
+									var countdown = setInterval(function() {
+										counterElement.textContent = "Hiding in " + seconds + " seconds";
+										seconds--;
+				
+										if (seconds < 0) {
+											clearInterval(countdown);
+											contactInfo.style.display = "none";
+											counterElement.textContent = "";
+										}
+									}, 1000);
+								}
+							</script>
+
+							<!--
+							<form action="forms/contactus.php" method="post" role="form" class="php-email-form">
 								<div class="row">
 									<div class="col-md-10 col-md-offset-1 col-md-pull-1 animate-box" data-animate-effect="fadeInRight">
 										<form action="">
@@ -127,14 +210,16 @@
 
 											</div>
 										</form>
+										-->
 									</div>
 								</div>
 							</form>							  
 						</div>
 					</div>
 
+					<!--
 					<script>
-						const whatsappNumber = "60169331098";
+						const whatsappNumber = "601158899639";
 
 						// WhatsApp Submit Button
 						document.getElementById("whatsappSubmitBtn").addEventListener("click", function(event) {
@@ -156,9 +241,11 @@
 						window.open(whatsappUrl);
 						});
 					</script>
+					-->
 
 				</div>
 				
+				<!--
 				<div class="cta-window" id="ctaWindow">
 					<div id="ctaHeader">
 						<button class="cta-button whatsapp-button"><img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhpXm8KzF83CpvM2SZdIumE_9bmhb0D2OM9zBaJsE39ZdMmwjgaQ8wTQmc7UZ7z-zgvASFgFVySqG35EzOMrRU0mrzu9zVydL-76UPN9H8rwVzezdnN89XDBilGTQwkjezlDQPf_9foWw0__bHQ6XD3c7tr5s3KSbkNlvaC56zmIW-wUVeuQzSdpG4t6Pw/s500/whatsapp-animation.gif" class="cta-img" alt="WhatsApp Icon">Fancy a quick chat?<br>Click Here!</button>
@@ -166,6 +253,7 @@
 						<span class="close-button" id="closeButton">&times;</span>
 					</div>
 				</div>
+				-->
 
 			</section>
 
