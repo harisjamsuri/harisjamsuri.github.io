@@ -1828,10 +1828,15 @@ body.offcanvas {
   border: 1px solid #ddd;
   background: #fff;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  opacity: 0;
+  transform: scale(0.95);
+  transition: opacity 0.3s ease, transform 0.3s ease;
 }
 
 .portfolio-item.active {
   display: block;
+  opacity: 1;
+  transform: scale(1);
 }
 
 .portfolio-item h2 {
@@ -1841,8 +1846,9 @@ body.offcanvas {
 
 .portfolio-item p {
   margin: 10px 0 0;
-<<<<<<< HEAD
 }
-=======
+
+.portfolio-nav a.active {
+  font-weight: bold;
+  color: #007bff; /* Optional: highlight the active link */
 }
->>>>>>> gh-pages
