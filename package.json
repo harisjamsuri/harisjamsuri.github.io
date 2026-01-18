@@ -1,0 +1,14 @@
+{
+  "name": "harisjamsuri.github.io",
+  "version": "1.0.0",
+  "private": true,
+  "type": "commonjs",
+  "scripts": {
+  "build": "npx eleventy",
+  "deploy": "npm run build && gh-pages -d dist -r https://github.com/harisjamsuri/harisjamsuri.github.io.git"
+  },
+  "devDependencies": {
+    "@11ty/eleventy": "^3.1.2",
+    "gh-pages": "^6.3.0"
+  }
+}
