@@ -513,40 +513,59 @@
 
           <div class="col-lg-7">
             <div class="contact-form">
-              <h3>Get In Touch</h3>
-              <p>Use the form below to briefly describe your ecommerce project, role, or challenge. If it’s a good fit, I’ll get back to you with next steps.</p>
+  <h3>Get In Touch</h3>
+  <p>
+    Fastest way to reach me: WhatsApp or email. If you prefer, send a short brief and I’ll respond within 24–48 hours.
+  </p>
 
-              <form action="forms/contact.php" method="post" class="php-email-form">
-                <div class="row gy-4">
+  <div class="row gy-3">
+    <div class="col-12">
+      <a class="btn w-100" target="_blank"
+         href="https://wa.me/601158899639?text=Hi%20Haris%2C%20I%27m%20reaching%20out%20about%20%5Brole%2Fproject%5D.%20Context%3A%20%5B%20%5D.%20Timeline%3A%20%5B%20%5D.%20Budget%3A%20%5B%20%5D.">
+        Message on WhatsApp
+      </a>
+    </div>
 
-                  <div class="col-md-6">
-                    <input type="text" name="name" class="form-control" placeholder="Your Name" required="">
-                  </div>
+    <div class="col-12">
+      <a class="btn w-100" href="mailto:haris.jamsuri@gmail.com?subject=Project%20Inquiry%20-%20%5BYour%20Company%5D&body=Hi%20Haris%2C%0D%0A%0D%0AContext%3A%20%0D%0AProject%2FRole%3A%20%0D%0ATimeline%3A%20%0D%0ABudget%2FRange%3A%20%0D%0ALink(s)%3A%20%0D%0A%0D%0AThanks%2C%0D%0A">
+        Email Me
+      </a>
+    </div>
 
-                  <div class="col-md-6 ">
-                    <input type="email" class="form-control" name="email" placeholder="Your Email" required="">
-                  </div>
+    <div class="col-12">
+      <button type="button" class="btn w-100" id="copyEmailBtn">
+        Copy Email Address
+      </button>
+      <small id="copyEmailMsg" style="display:none; opacity:.8;">Copied.</small>
+    </div>
 
-                  <div class="col-12">
-                    <input type="text" class="form-control" name="subject" placeholder="Subject" required="">
-                  </div>
+    <div class="col-12">
+      <a class="btn w-100" target="_blank" href="https://www.linkedin.com/">
+        Connect on LinkedIn
+      </a>
+      <!-- Replace with your real LinkedIn URL -->
+    </div>
+  </div>
+</div>
 
-                  <div class="col-12">
-                    <textarea class="form-control" name="message" rows="6" placeholder="Message" required=""></textarea>
-                  </div>
+<script>
+  (function () {
+    const btn = document.getElementById("copyEmailBtn");
+    const msg = document.getElementById("copyEmailMsg");
+    if (!btn) return;
 
-                  <div class="col-12 text-center">
-                    <div class="loading">Loading</div>
-                    <div class="error-message"></div>
-                    <div class="sent-message">Your message has been sent. Thank you!</div>
+    btn.addEventListener("click", async () => {
+      try {
+        await navigator.clipboard.writeText("haris.jamsuri@gmail.com");
+        msg.style.display = "inline-block";
+        setTimeout(() => (msg.style.display = "none"), 1500);
+      } catch (e) {
+        window.prompt("Copy this email:", "haris.jamsuri@gmail.com");
+      }
+    });
+  })();
+</script>
 
-                    <button type="submit" class="btn">Send Message</button>
-                  </div>
-
-                </div>
-              </form>
-
-            </div>
           </div>
 
         </div>
