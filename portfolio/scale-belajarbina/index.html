@@ -88,109 +88,110 @@
 
         <!-- HEADER -->
         <div class="funnel-header">
-          <h2>User Lifecycle Flow</h2>
+          <h2>Scalability & Maintenance</h2>
           <p class="funnel-subtitle">
-            Mapped Belajarbina’s platform behavior as a <strong>lifecycle</strong> (not a funnel): users move from
-            <strong>visitor → buyer → eligible learner</strong>, then into <strong>active learning</strong>, and eventually reach
-            <strong>expiry / renewal / upgrade</strong> depending on their access type.
+            Designed Belajarbina to stay reliable as users and tiers grow by prioritizing <strong>structural separation</strong>
+            over fragile conditional logic — minimizing day-to-day admin work while keeping access behavior <strong>predictable</strong>
+            under caching and repeated logins.
           </p>
         </div>
 
         <!-- TOP SUMMARY STRIP (scan-first) -->
         <div class="funnel-strip">
           <div class="strip-item">
-            <span class="strip-label">Lifecycle Goal</span>
-            <span class="strip-value">Make access stages clear and predictable over time (entry, active, expiry, renew/upgrade)</span>
+            <span class="strip-label">Scaling Goal</span>
+            <span class="strip-value">Add users/tier complexity without rewriting access logic or increasing manual support</span>
           </div>
           <div class="strip-item">
-            <span class="strip-label">Key Trigger</span>
-            <span class="strip-value"><strong>Order Completed</strong> activates eligibility and starts the learner lifecycle</span>
+            <span class="strip-label">Maintenance Risk</span>
+            <span class="strip-value">Conditional-heavy restrictions create edge cases (cache, session, tier conflicts)</span>
           </div>
           <div class="strip-item">
             <span class="strip-label">Design Priority</span>
-            <span class="strip-value">Reduce confusion, avoid “ghost access”, keep re-entry rules consistent</span>
+            <span class="strip-value">Low intervention ops: clear gates, clear routing, minimal “special handling”</span>
           </div>
         </div>
 
-        <!-- 1) LIFECYCLE RISKS (image + bullets) -->
+        <!-- 1) MAINTENANCE PAIN POINTS (bullets + optional visual) -->
         <div class="funnel-block">
           <div class="funnel-block-header">
-            <h3>1) Lifecycle Risks Identified</h3>
-            <p class="muted">Common lifecycle failure points when access rules aren’t explicit across time.</p>
+            <h3>1) Maintenance Pain Points</h3>
+            <p class="muted">What typically causes WordPress LMS setups to become high-maintenance over time.</p>
           </div>
 
           <div class="row g-4 align-items-start">
             <div class="col-lg-7">
               <figure class="funnel-figure">
-                <img src="/assets/img/portfolio/bina-lifecycle-flow-2.png" alt="Belajarbina user lifecycle flow diagram" class="img-fluid" loading="lazy">
-                <figcaption>User lifecycle stages: visitor → buyer → eligible → active → expired / renew / upgrade.</figcaption>
+                <!-- Optional: use an existing architecture image or create a simple "before vs after" diagram -->
+                <img src="/assets/img/portfolio/bina-scale-1.png" alt="Belajarbina scalability and maintenance diagram" class="img-fluid" loading="lazy">
+                <figcaption>Reducing conditional logic lowers cache-related inconsistencies and support workload.</figcaption>
               </figure>
             </div>
 
             <div class="col-lg-5">
               <ul class="funnel-bullets">
-                <li>Users may assume access is permanent if expiry rules aren’t obvious</li>
-                <li>Expired users can become “support-heavy” if re-entry is unclear (renewal confusion)</li>
-                <li>Tier upgrades can cause inconsistent access states if lifecycle states aren’t defined</li>
-                <li>Without clear stages, admin work increases due to manual verification and exceptions</li>
+                <li>Too many access rules inside one instance increases <strong>edge cases</strong> (tier + time + module)</li>
+                <li>Cache/session behavior can create <strong>inconsistent views</strong> (“why I can’t access?” tickets)</li>
+                <li>More tiers usually means more exceptions — which becomes <strong>admin-heavy</strong> without structure</li>
+                <li>Systems break when they depend on constant manual configuration and “special handling”</li>
               </ul>
             </div>
           </div>
         </div>
 
-        <!-- 2) LIFECYCLE DESIGN (cards) -->
+        <!-- 2) MAINTENANCE DESIGN (cards) -->
         <div class="funnel-block">
           <div class="funnel-block-header">
-            <h3>2) Lifecycle Design</h3>
-            <p class="muted">Defined lifecycle stages so the system behaves consistently across months and access types.</p>
+            <h3>2) Maintenance-First Design Choices</h3>
+            <p class="muted">Decisions made to keep the system stable, understandable, and low-touch.</p>
           </div>
 
           <div class="row g-4">
             <div class="col-lg-4">
               <div class="funnel-card">
-                <div class="funnel-card-title">Entry → Buyer</div>
+                <div class="funnel-card-title">Structural Separation</div>
                 <ul class="funnel-bullets compact">
-                  <li>User arrives as a visitor and purchases an entry pass</li>
-                  <li>Payment confirmation email sets expectation for next steps</li>
-                  <li>Order status becomes the single source of truth</li>
+                  <li>Separate environments by tier (Base vs Higher)</li>
+                  <li>Reduces conditional rendering inside one LMS</li>
+                  <li>Improves predictability under caching</li>
                 </ul>
               </div>
             </div>
 
             <div class="col-lg-4">
               <div class="funnel-card">
-                <div class="funnel-card-title">Eligibility → Active Learning</div>
+                <div class="funnel-card-title">Single Source of Truth</div>
                 <ul class="funnel-bullets compact">
-                  <li><strong>Completed</strong> order activates eligibility</li>
-                  <li>User is routed into the correct learning environment by tier</li>
-                  <li>Access experience stays consistent across sessions</li>
+                  <li>WooCommerce order status controls eligibility</li>
+                  <li>Clear “deny-by-default” stance prevents accidental access</li>
+                  <li>Fewer ambiguous states = fewer support cases</li>
                 </ul>
               </div>
             </div>
 
             <div class="col-lg-4">
               <div class="funnel-card">
-                <div class="funnel-card-title">Expiry → Renew / Upgrade</div>
+                <div class="funnel-card-title">Operational Clarity</div>
                 <ul class="funnel-bullets compact">
-                  <li>Access can expire based on the purchased access type</li>
-                  <li>Renewal restores eligibility without “special handling”</li>
-                  <li>Upgrade routes user into the higher-tier environment</li>
+                  <li>Users understand where to log in based on tier</li>
+                  <li>Expired/renew/upgrade states reduce confusion</li>
+                  <li>Less manual verification and ad-hoc fixes</li>
                 </ul>
               </div>
             </div>
           </div>
         </div>
 
-        <!-- 3) LIFECYCLE WALKTHROUGH (single strong visual) -->
+        <!-- 3) SCALING WALKTHROUGH (single strong visual) -->
         <div class="funnel-block">
           <div class="funnel-block-header">
-            <h3>3) Lifecycle Walkthrough</h3>
-            <p class="muted">How the platform behaves as the user’s status changes over time.</p>
+            <h3>3) Scaling Walkthrough</h3>
+            <p class="muted">How the system handles growth without creating a maintenance burden.</p>
           </div>
 
           <figure class="funnel-figure">
-            <img src="/assets/img/portfolio/bina-lifecycle-flow.png" alt="Belajarbina lifecycle walkthrough diagram" class="img-fluid" loading="lazy">
-            <figcaption>The lifecycle model prevents “unclear access” by making each stage explicit: active, expired, renew, upgrade.</figcaption>
+            <img src="/assets/img/portfolio/bina-scale-1.png" alt="Belajarbina scaling walkthrough diagram" class="img-fluid" loading="lazy">
+            <figcaption>As tiers or modules grow, separation + clear gates prevents the “rule explosion” common in single-instance LMS setups.</figcaption>
           </figure>
         </div>
 
@@ -198,15 +199,15 @@
         <div class="funnel-block">
           <div class="funnel-block-header">
             <h3>Outcome (Qualitative)</h3>
-            <p class="muted">The outcome is clarity: fewer user questions and fewer access exceptions.</p>
+            <p class="muted">The outcome is operational stability: fewer edge cases, less admin work, easier iteration.</p>
           </div>
 
           <div class="row g-4">
             <div class="col-lg-8">
               <ul class="funnel-bullets">
-                <li><strong>Clear expectations</strong>: users understand whether access is active, expired, or requires renewal</li>
-                <li><strong>Predictable re-entry</strong>: renewals restore access without manual admin overrides</li>
-                <li><strong>Reduced support load</strong>: fewer “why can’t I access?” issues caused by unclear lifecycle stages</li>
+                <li><strong>Lower support load</strong>: fewer access exceptions caused by conditional logic conflicts</li>
+                <li><strong>Predictable behavior</strong>: user access is consistent across sessions and environments</li>
+                <li><strong>Maintainable growth</strong>: adding tiers/modules doesn’t require reworking the entire system</li>
               </ul>
             </div>
 
@@ -214,7 +215,7 @@
               <div class="funnel-callout">
                 <div class="callout-title">Resulting system behavior</div>
                 <p class="callout-text">
-                  A lifecycle-driven access model that keeps behavior consistent over time — users always know where they stand.
+                  A maintenance-first LMS design: scale by <strong>separating complexity</strong>, not by stacking more conditional rules.
                 </p>
               </div>
             </div>
