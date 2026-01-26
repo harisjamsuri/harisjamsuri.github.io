@@ -270,3 +270,54 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   });
 });
+
+//when case changes, show only matching analysis items
+document.addEventListener("DOMContentLoaded", () => {
+  const caseList = document.querySelector('[data-filter-group="case"] .portfolio-filters');
+  const analysisList = document.querySelector('#analysisFilters');
+  if (!caseList || !analysisList) return;
+
+  const caseItems = Array.from(caseList.querySelectorAll('li[data-filter]'));
+  const analysisItems = Array.from(analysisList.querySelectorAll('li[data-filter][data-case]'));
+
+  function setActive(listEl, activeLi) {
+    listEl.querySelectorAll('li').forEach(li => li.classList.remove('filter-active'));
+    activeLi.classList.add('filter-active');
+  }
+
+  function showAnalysisForCase(caseClass) {
+    // Show only analysis items for the selected case
+    analysisItems.forEach(li => {
+      li.style.display = (li.dataset.case === caseClass) ? '' : 'none';
+      li.classList.remove('filter-active');
+    });
+
+    // Auto-activate first visible analysis item
+    const firstVisible = analysisItems.find(li => li.dataset.case === caseClass);
+    if (firstVisible) {
+      firstVisible.classList.add('filter-active');
+      // Trigger click so Isotope updates (works with most Isotope setups)
+      firstVisible.dispatchEvent(new MouseEvent('click', { bubbles: true }));
+    }
+  }
+
+  // Attach case click handler
+  caseItems.forEach(li => {
+    li.addEventListener('click', () => {
+      // Your case li data-filter is like ".cs-belajar" — normalize to "cs-belajar"
+      const raw = li.getAttribute('data-filter') || '';
+      const caseClass = raw.replace('.', '').trim();
+      if (!caseClass) return;
+
+      setActive(caseList, li);
+      showAnalysisForCase(caseClass);
+    });
+  });
+
+  // Init based on currently active case (or first case)
+  const activeCase = caseItems.find(li => li.classList.contains('filter-active')) || caseItems[0];
+  if (activeCase) {
+    const raw = activeCase.getAttribute('data-filter') || '';
+    showAnalysisForCase(raw.replace('.', '').trim());
+  }
+});
