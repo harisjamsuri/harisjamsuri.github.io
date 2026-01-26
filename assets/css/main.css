@@ -1266,6 +1266,9 @@ section,
   margin: 40px 0 40px;
 }
 
+/* hide items without breaking layout */
+.is-hidden { display: none !important; }
+
 /* Ensure consistent spacing above CTA on all screens */
 .profile-card .cta-section {
   margin-top: 24px;

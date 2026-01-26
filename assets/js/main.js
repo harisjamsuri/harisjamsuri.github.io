@@ -321,3 +321,58 @@ document.addEventListener("DOMContentLoaded", () => {
     showAnalysisForCase(raw.replace('.', '').trim());
   }
 });
+
+//hide on load, show only active case’s analysis, update on click
+document.addEventListener("DOMContentLoaded", () => {
+  const caseList = document.querySelector('[data-filter-group="case"] .portfolio-filters');
+  const analysisList = document.querySelector('#analysisFilters');
+  if (!caseList || !analysisList) return;
+
+  const caseItems = Array.from(caseList.querySelectorAll('li[data-filter]'));
+  const analysisItems = Array.from(analysisList.querySelectorAll('li[data-filter][data-case]'));
+
+  // 1) Hide EVERYTHING immediately on load
+  analysisItems.forEach(li => li.classList.add('is-hidden'));
+
+  function setActive(listEl, activeLi) {
+    listEl.querySelectorAll('li').forEach(li => li.classList.remove('filter-active'));
+    activeLi.classList.add('filter-active');
+  }
+
+  function showAnalysisForCase(caseClass) {
+    // Hide all + clear active
+    analysisItems.forEach(li => {
+      li.classList.add('is-hidden');
+      li.classList.remove('filter-active');
+    });
+
+    // Show only matching
+    const matches = analysisItems.filter(li => li.dataset.case === caseClass);
+    matches.forEach(li => li.classList.remove('is-hidden'));
+
+    // Activate first matching analysis item and trigger filter update
+    if (matches.length) {
+      matches[0].classList.add('filter-active');
+      matches[0].dispatchEvent(new MouseEvent('click', { bubbles: true }));
+    }
+  }
+
+  // Case click => swap analysis list
+  caseItems.forEach(li => {
+    li.addEventListener('click', () => {
+      const raw = li.getAttribute('data-filter') || '';
+      const caseClass = raw.replace('.', '').trim();
+      if (!caseClass) return;
+
+      setActive(caseList, li);
+      showAnalysisForCase(caseClass);
+    });
+  });
+
+  // 2) On initial load, show analysis only for the active case (or fallback to first)
+  const activeCase = caseItems.find(li => li.classList.contains('filter-active')) || caseItems[0];
+  if (activeCase) {
+    const raw = activeCase.getAttribute('data-filter') || '';
+    showAnalysisForCase(raw.replace('.', '').trim());
+  }
+});
