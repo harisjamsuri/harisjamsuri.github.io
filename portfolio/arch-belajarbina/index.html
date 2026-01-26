@@ -1,0 +1,275 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <title>Haris Jamsuri — Ecommerce Growth Specialist (Funnels & Paid Traffic)</title>
+  <meta name="description" content="">
+  <meta name="keywords" content="">
+
+  <!-- Favicons -->
+  <link href="/assets/img/favicon.png" rel="icon">
+  <link href="/assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com" rel="preconnect">
+  <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&family=Nunito:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+
+  <!-- Vendor CSS Files -->
+  <link href="/assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="/assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+  <link href="/assets/vendor/aos/aos.css" rel="stylesheet">
+  <link href="/assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
+  <link href="/assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+
+  <!-- Main CSS File -->
+  <link href="/assets/css/main.css" rel="stylesheet">
+</head>
+<body>
+  <header id="header" class="header dark-background d-flex flex-column justify-content-center">
+    <i class="header-toggle d-xl-none bi bi-list"></i>
+
+    <div class="header-container d-flex flex-column align-items-start">
+      <nav id="navmenu" class="navmenu">
+        <ul>
+          <li><a href="https://harisjamsuri.github.io/" class="active"><i class="bi bi-house navicon"></i>Home</a></li>
+          <li><a href="https://harisjamsuri.github.io/#portfolio"><i class="bi bi-images navicon"></i> Case Studies</a></li>
+          <li><a href="https://harisjamsuri.github.io/#about"><i class="bi bi-person navicon"></i> About</a></li>
+          <li><a href="https://harisjamsuri.github.io/#contact"><i class="bi bi-envelope navicon"></i> Contact</a></li>
+        </ul>
+      </nav>
+
+        <div class="social-links text-center">
+            <a href="/assets/Resume Haris Jamsuri.pdf" 
+                class="resume-download" 
+                download
+                aria-label="Download Resume">
+                <i class="bi bi-file-earmark-text"></i>
+            </a>
+
+            <a href="https://wa.me/601158899639" 
+                class="whatsapp" 
+                aria-label="WhatsApp">
+                <i class="bi bi-whatsapp"></i>
+            </a>
+        </div>
+
+
+    </div>
+
+  </header>
+
+  <main>
+    
+  <div class="main">
+
+    <!-- Page Title -->
+    <div class="page-title dark-background">
+      <div class="container d-lg-flex justify-content-between align-items-center">
+        <h1 class="mb-2 mb-lg-0">System Architecture : Belajarbina.online</h1>
+        <nav class="breadcrumbs">
+          <ol>
+            <li><a href="/">Home</a></li>
+            <li class="current">Architecture : Belajarbina.online</li>
+          </ol>
+        </nav>
+      </div>
+    </div><!-- End Page Title -->
+
+    <!-- Portfolio Details Section -->
+    <section id="portfolio-details" class="portfolio-details section">
+      <div class="container" data-aos="fade-up" data-aos-delay="100">
+
+        <div class="row gy-4">
+          <div class="col-lg-12">
+
+            <div class="portfolio-description funnel-case" data-aos="fade-up" data-aos-delay="300">
+
+              <!-- HEADER -->
+              <div class="funnel-header">
+                <h2>System Architecture & Access Control</h2>
+                <p class="funnel-subtitle">
+                  Designed Belajarbina as a <strong>sales site → controlled LMS environment</strong> where access is granted through
+                  <strong>purchase status</strong> and routed into the correct learning environment to ensure <strong>predictable behavior</strong>
+                  and low-maintenance operations.
+                </p>
+              </div>
+
+              <!-- TOP SUMMARY STRIP (scan-first) -->
+              <div class="funnel-strip">
+                <div class="strip-item">
+                  <span class="strip-label">Goal</span>
+                  <span class="strip-value">Convert buyers into eligible learners with controlled access (no completed order = no access)</span>
+                </div>
+                <div class="strip-item">
+                  <span class="strip-label">Constraint</span>
+                  <span class="strip-value">Tiered access + time/module restrictions + caching behavior risk in a single LMS environment</span>
+                </div>
+                <div class="strip-item">
+                  <span class="strip-label">Focus</span>
+                  <span class="strip-value">Architecture separation, access gate rules, lifecycle clarity, long-term maintainability</span>
+                </div>
+              </div>
+
+              <!-- 1) SYSTEM ARCHITECTURE (image + bullets) -->
+              <div class="funnel-block">
+                <div class="funnel-block-header">
+                  <h3>1) System Architecture</h3>
+                  <p class="muted">How the sales site and learning environments are structured to avoid runtime complexity.</p>
+                </div>
+
+                <div class="row g-4 align-items-start">
+                  <div class="col-lg-7">
+                    <figure class="funnel-figure">
+                      <img src="/assets/img/portfolio/bina-arch-1.png" alt="Belajarbina system architecture diagram" class="img-fluid" loading="lazy">
+                      <figcaption>High-level structure: Sales site (WooCommerce) → eligibility gate → tier-based LMS environments.</figcaption>
+                    </figure>
+                  </div>
+
+                  <div class="col-lg-5">
+                    <ul class="funnel-bullets">
+                      <li>Separated concerns: <strong>Sales & payments</strong> live on the main domain; <strong>learning delivery</strong> lives on LMS subdomains</li>
+                      <li><strong>WooCommerce order status</strong> is the source of truth for access eligibility</li>
+                      <li>Tier-based routing reduces conditional logic and improves predictability under caching</li>
+                      <li>Architecture designed for <strong>low intervention</strong> (no constant backend reconfiguration)</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+
+              <!-- 2) ACCESS CONTROL LOGIC (cards + optional screenshot) -->
+              <div class="funnel-block">
+                <div class="funnel-block-header">
+                  <h3>2) Access Control Logic</h3>
+                  <p class="muted">The rule set that determines who gets access, when, and where.</p>
+                </div>
+
+                <div class="row g-4">
+                  <div class="col-lg-4">
+                    <div class="funnel-card">
+                      <div class="funnel-card-title">Eligibility Gate</div>
+                      <ul class="funnel-bullets compact">
+                        <li>User purchases an entry pass on the main site</li>
+                        <li>Access becomes valid only when order is <strong>Completed</strong></li>
+                        <li>Completed status prevents unauthorized access and reduces edge cases</li>
+                      </ul>
+                    </div>
+                  </div>
+
+                  <div class="col-lg-4">
+                    <div class="funnel-card">
+                      <div class="funnel-card-title">Tier Routing</div>
+                      <ul class="funnel-bullets compact">
+                        <li><strong>Basic tier</strong> routed to <code>base.belajarbina.online</code></li>
+                        <li><strong>Higher tier</strong> routed to <code>lms.belajarbina.online</code></li>
+                        <li>Separation reduces “conditional access” conflicts in a single environment</li>
+                      </ul>
+                    </div>
+                  </div>
+
+                  <div class="col-lg-4">
+                    <div class="funnel-card">
+                      <div class="funnel-card-title">Session Behavior</div>
+                      <ul class="funnel-bullets compact">
+                        <li>Access checks remain consistent across sessions</li>
+                        <li>Less reliance on fragile per-page conditional rendering</li>
+                        <li>Improves reliability when caching is present</li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="row g-4 mt-2">
+                  <div class="col-lg-12">
+                    <figure class="funnel-figure">
+                      <img src="/assets/img/portfolio/bina-access-1.png" alt="Belajarbina access logic / eligibility flow" class="img-fluid" loading="lazy">
+                      <figcaption>Access is gated by purchase completion and routed by tier to reduce runtime complexity.</figcaption>
+                    </figure>
+                  </div>
+                </div>
+              </div>
+
+              <!-- 3) USER LIFECYCLE FLOW (single strong visual) -->
+              <div class="funnel-block">
+                <div class="funnel-block-header">
+                  <h3>3) User Lifecycle Flow</h3>
+                  <p class="muted">Lifecycle framing (not a funnel): how users move through purchase → learning → expiry/upgrade.</p>
+                </div>
+
+                <figure class="funnel-figure">
+                  <img src="/assets/img/portfolio/bina-lifecycle-flow.png" alt="Belajarbina user lifecycle diagram" class="img-fluid" loading="lazy">
+                  <figcaption>Visitor → Buyer → Eligible learner → Active learner → Expired / renew / upgrade (based on access type).</figcaption>
+                </figure>
+              </div>
+
+              <!-- 4) OUTCOME (Qualitative) -->
+              <div class="funnel-block">
+                <div class="funnel-block-header">
+                  <h3>Outcome (Qualitative)</h3>
+                  <p class="muted">The work prioritized predictable access behavior and maintainability over complex conditional rules.</p>
+                </div>
+
+                <div class="row g-4">
+                  <div class="col-lg-8">
+                    <ul class="funnel-bullets">
+                      <li><strong>Predictable access behavior</strong>: fewer edge cases caused by tier/time/module restrictions</li>
+                      <li><strong>Reduced runtime complexity</strong>: separation lowered dependence on conditional rendering inside one LMS instance</li>
+                      <li><strong>Lower maintenance</strong>: architecture minimizes repeated backend configuration work</li>
+                    </ul>
+                  </div>
+
+                  <div class="col-lg-4">
+                    <div class="funnel-callout">
+                      <div class="callout-title">Resulting system behavior</div>
+                      <p class="callout-text">
+                        The platform runs as a <strong>stable sales → learning pipeline</strong>, where eligibility is clearly gated and
+                        tier complexity is handled structurally (separation), not through endless conditional rules.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+            </div><!-- /portfolio-description -->
+
+          </div>
+        </div>
+
+      </div>
+
+</section>
+
+<!-- /Portfolio Details Section -->
+
+  </div>
+  </main>
+
+  <div class="container">
+    <div class="copyright text-center ">
+        <p>© <span>Copyright</span> <strong class="px-1 sitename">Haris Jamsuri</strong> <span>All Rights Reserved</span></p>
+    </div>
+</div>
+
+<!-- Scroll Top -->
+ <a href="#" id="scroll-top" class="scroll-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+ 
+ <!-- Preloader -->
+  <div id="preloader"></div>
+
+  <!-- Vendor JS Files -->
+  <script src="/assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="/assets/vendor/php-email-form/validate.js"></script>
+  <script src="/assets/vendor/aos/aos.js"></script>
+  <script src="/assets/vendor/typed.js/typed.umd.js"></script>
+  <script src="/assets/vendor/purecounter/purecounter_vanilla.js"></script>
+  <script src="/assets/vendor/waypoints/noframework.waypoints.js"></script>
+  <script src="/assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
+  <script src="/assets/vendor/imagesloaded/imagesloaded.pkgd.min.js"></script>
+  <script src="/assets/vendor/glightbox/js/glightbox.min.js"></script>
+  <script src="/assets/vendor/swiper/swiper-bundle.min.js"></script>
+
+  <!-- Main JS File -->
+  <script src="/assets/js/main.js"></script>
+</body>
+</html>
